@@ -770,3 +770,161 @@ img {
         grid-template-columns: 1fr;
     }
 }
+/* ============================================
+   11. AVIS CLIENTS
+   ============================================ */
+
+.avis {
+    padding: var(--space-2xl) var(--space-lg);
+    background-color: var(--color-blanc);
+}
+
+.avis__inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.avis__header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.avis__titre {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-noir);
+    margin-bottom: var(--space-sm);
+}
+
+.avis__note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.avis__etoiles {
+    color: var(--color-jaune);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.avis__note-texte {
+    font-size: 0.95rem;
+    color: var(--color-texte);
+    opacity: 0.75;
+}
+
+.avis__carousel {
+    position: relative;
+    overflow: visible;
+    padding-bottom: var(--space-lg);
+}
+
+.avis__overflow {
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+}
+
+.avis__track {
+    display: flex;
+    transition: transform var(--transition-base);
+}
+
+.avis__carte {
+    min-width: 100%;
+    padding: var(--space-xl);
+    background-color: var(--color-gris-clair);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.avis__etoiles-carte {
+    color: var(--color-jaune);
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+}
+
+.avis__texte {
+    font-size: 1rem;
+    color: var(--color-texte);
+    line-height: 1.8;
+    font-style: italic;
+    flex: 1;
+}
+
+.avis__auteur {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-noir);
+}
+
+.avis__points {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
+.avis__point {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-full);
+    border: none;
+    background-color: var(--color-gris-clair);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+    padding: 0;
+}
+
+.avis__point--actif {
+    background-color: var(--color-jaune);
+    transform: scale(1.3);
+}
+.avis__fleche {
+    position: absolute;
+    top: 0;
+    bottom: var(--space-2xl); /* exclut la zone des points */
+    margin: auto;
+    height: 40px;
+    background-color: var(--color-blanc);
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-full);
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    color: var(--color-noir);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.avis__fleche:hover {
+    background-color: var(--color-jaune);
+    border-color: var(--color-jaune);
+}
+
+.avis__fleche--gauche {
+    left: -20px;
+}
+
+.avis__fleche--droite {
+    right: -20px;
+}
+
+/* Masquer les flèches sur mobile — trop étroit */
+@media (max-width: 768px) {
+    .avis__fleche {
+        display: none;
+    }
+}
+
+/* Avis mobile */
+@media (max-width: 768px) {
+    .avis__carte {
+        padding: var(--space-lg) var(--space-md);
+    }
+}

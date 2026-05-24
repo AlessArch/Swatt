@@ -23,8 +23,10 @@ dropdownLink.addEventListener('click', (e) => {
 // --- Année dynamique dans le footer ---
 const yearEl = document.getElementById('footer-year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 // --- Carousel avis ---
 const track = document.querySelector('.avis__track');
+const overflowEl = document.querySelector('.avis__overflow');
 const points = document.querySelectorAll('.avis__point');
 let courant = 0;
 let timer;
@@ -41,7 +43,6 @@ function suivant() {
     allerA((courant + 1) % points.length);
 }
 
-// Défilement automatique toutes les 5 secondes
 function demarrerTimer() {
     timer = setInterval(suivant, 5000);
 }
@@ -59,11 +60,10 @@ points.forEach((point, i) => {
     });
 });
 
-// Pause au survol
+// Pause au survol desktop
 track.addEventListener('mouseenter', arreterTimer);
 track.addEventListener('mouseleave', demarrerTimer);
 
-demarrerTimer();
 // Flèches
 const flecheGauche = document.querySelector('.avis__fleche--gauche');
 const flecheDroite = document.querySelector('.avis__fleche--droite');
@@ -79,14 +79,15 @@ flecheDroite.addEventListener('click', () => {
     suivant();
     demarrerTimer();
 });
-// --- Swipe mobile ---
+
+// Swipe mobile — écoute sur overflowEl
 let touchDepart = null;
 
-track.addEventListener('touchstart', (e) => {
+overflowEl.addEventListener('touchstart', (e) => {
     touchDepart = e.touches[0].clientX;
 }, { passive: true });
 
-track.addEventListener('touchend', (e) => {
+overflowEl.addEventListener('touchend', (e) => {
     if (touchDepart === null) return;
     const touchFin = e.changedTouches[0].clientX;
     const diff = touchDepart - touchFin;
@@ -102,3 +103,5 @@ track.addEventListener('touchend', (e) => {
     }
     touchDepart = null;
 }, { passive: true });
+
+demarrerTimer();

@@ -67,3 +67,114 @@ img {
     max-width: 100%;
     display: block;
 }
+
+/* ============================================
+   4. HEADER & NAVIGATION
+   ============================================ */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-noir);
+}
+
+.nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-sm) var(--space-lg);
+    width: 100%;
+}
+
+.nav__logo img {
+    height: 64px;
+    width: auto;
+}
+
+.nav__liste {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    list-style: none;
+    margin-left: auto;
+}
+
+.nav__lien {
+    color: var(--color-blanc);
+    text-decoration: none;
+    font-size: 0.95rem;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+}
+
+.nav__lien:hover {
+    opacity: 1;
+}
+
+.nav__lien--cta {
+    background-color: var(--color-jaune);
+    color: var(--color-noir);
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    opacity: 1;
+}
+
+.nav__lien--cta:hover {
+    background-color: var(--color-jaune-fonce);
+}
+
+.nav__lien--contact {
+    border: 1.5px solid var(--color-blanc);
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    opacity: 1;
+}
+
+.nav__lien--contact:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.nav__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+}
+
+.nav__hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-blanc);
+    border-radius: 2px;
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+    .nav__hamburger {
+        display: flex;
+    }
+
+    .nav__liste {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-noir);
+        padding: var(--space-sm) var(--space-lg);
+        margin-left: 0;
+    }
+
+    .nav__liste--ouverte {
+        display: fle

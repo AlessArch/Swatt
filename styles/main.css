@@ -824,21 +824,25 @@ img {
 .avis__overflow {
     overflow: hidden;
     border-radius: var(--radius-lg);
+    width: 100%;
 }
 
 .avis__track {
     display: flex;
     transition: transform var(--transition-base);
+    width: 100%;
 }
 
 .avis__carte {
     min-width: 100%;
+    width: 100%;
     padding: var(--space-xl);
     background-color: var(--color-gris-clair);
     border-radius: var(--radius-lg);
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
+    box-sizing: border-box;
 }
 
 .avis__etoiles-carte {

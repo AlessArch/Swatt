@@ -271,8 +271,9 @@ img {
     }
 
     .nav__list--open {
-        display: flex;
-    }
+    display: flex;
+    overflow: visible;
+}
 
     .nav__list li {
         width: 100%;
@@ -313,7 +314,6 @@ img {
         padding: var(--space-xs) 0;
         min-width: unset;
         width: 100%;
-        z-index: 999;
     }
 
     .nav__item--dropdown--open .nav__dropdown-icone {
